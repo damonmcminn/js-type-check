@@ -30,3 +30,15 @@ export function isDate(date) {
   return date instanceof Date;
 
 }
+
+export function isArray(xs) {
+
+  return Array.isArray(xs);
+
+}
+
+// array
+// object
+// fn
+// null
+// undefined

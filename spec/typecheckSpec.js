@@ -171,3 +171,34 @@ describe('isDate', function() {
   });
 
 });
+
+describe('isArray', function() {
+
+  it('should return true if an Array', function() {
+
+    let n = tc.isArray;
+
+    let fail = [
+      n(new Date()),
+      n({}),
+      n(1),
+      n(fn),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n(null),
+      n(undefined),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n([])).toBe(true);
+
+  });
+
+});
