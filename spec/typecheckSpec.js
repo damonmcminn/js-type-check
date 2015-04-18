@@ -332,12 +332,11 @@ describe('isObject', function() {
 
 });
 
-/*
 describe('isError', function() {
 
-  it('should return true if an object', function() {
+  it('should return true if an Error', function() {
 
-    let n = tc.isObject;
+    let n = tc.isError;
 
     let fail = [
       n(new Date()),
@@ -358,10 +357,8 @@ describe('isError', function() {
       expect(f).toBe(false);
     });
 
-    expect(n({})).toBe(true);
-    expect(n((function() { return {} })())).toBe(true);
+    expect(n(new Error())).toBe(true);
 
   });
 
 });
-*/

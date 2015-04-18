@@ -62,4 +62,8 @@ export function isObject(obj) {
 
 }
 
-// error
+export function isError(err) {
+
+  return err instanceof Error;
+
+}
