@@ -265,3 +265,34 @@ describe('isUndefined', function() {
   });
 
 });
+
+describe('isFunction', function() {
+
+  it('should return true if function', function() {
+
+    let n = tc.isFunction;
+
+    let fail = [
+      n(new Date()),
+      n({}),
+      n(1),
+      n(undefined),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(null),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n(fn)).toBe(true);
+
+  });
+
+});
