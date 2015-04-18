@@ -202,3 +202,34 @@ describe('isArray', function() {
   });
 
 });
+
+describe('isNull', function() {
+
+  it('should return true if null', function() {
+
+    let n = tc.isNull;
+
+    let fail = [
+      n(new Date()),
+      n({}),
+      n(1),
+      n(fn),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(undefined),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n(null)).toBe(true);
+
+  });
+
+});
