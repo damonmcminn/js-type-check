@@ -233,3 +233,35 @@ describe('isNull', function() {
   });
 
 });
+
+describe('isUndefined', function() {
+
+  it('should return true if undefined', function() {
+
+    let n = tc.isUndefined;
+
+    let fail = [
+      n(new Date()),
+      n({}),
+      n(1),
+      n(fn),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(null),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n(undefined)).toBe(true);
+    expect(n()).toBe(true);
+
+  });
+
+});

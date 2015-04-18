@@ -43,6 +43,12 @@ export function isNull(n) {
 
 }
 
+export function isUndefined(x) {
+
+  return x === undefined;
+
+}
+
 // object
 // fn
 // undefined
