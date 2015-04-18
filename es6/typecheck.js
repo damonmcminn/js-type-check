@@ -37,8 +37,12 @@ export function isArray(xs) {
 
 }
 
-// array
+export function isNull(n) {
+
+  return n === null;
+
+}
+
 // object
 // fn
-// null
 // undefined
