@@ -296,3 +296,72 @@ describe('isFunction', function() {
   });
 
 });
+
+describe('isObject', function() {
+
+  it('should return true if an object', function() {
+
+    let n = tc.isObject;
+
+    let fail = [
+      n(new Date()),
+      n(fn),
+      n(1),
+      n(undefined),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(null),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    let customConstructed = (new (function Custom(){})());
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n({})).toBe(true);
+    expect(n((function() { return {} })())).toBe(true);
+    expect(n(customConstructed)).toBe(true);
+
+  });
+
+});
+
+/*
+describe('isError', function() {
+
+  it('should return true if an object', function() {
+
+    let n = tc.isObject;
+
+    let fail = [
+      n(new Date()),
+      n(fn),
+      n(1),
+      n(undefined),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(null),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    fail.forEach(function(f) {
+      expect(f).toBe(false);
+    });
+
+    expect(n({})).toBe(true);
+    expect(n((function() { return {} })())).toBe(true);
+
+  });
+
+});
+*/

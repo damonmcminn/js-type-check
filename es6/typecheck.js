@@ -54,5 +54,12 @@ export function isFunction(fn) {
   return typeof fn === 'function';
 
 }
-// object
-// fn
+
+export function isObject(obj) {
+
+  // use prototype method in case toString has been overridden
+  return obj ? Object.prototype.toString.call(obj).slice(8, -1) === 'Object' : false;
+
+}
+
+// error
