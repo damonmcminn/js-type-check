@@ -1,0 +1,22 @@
+{
+  "name": "js-type-check",
+  "version": "1.0.0",
+  "description": "JavaScript type checking micro library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damonmcminn/js-type-check.git"
+  },
+  "author": "Damon McMinn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/damonmcminn/js-type-check/issues"
+  },
+  "homepage": "https://github.com/damonmcminn/js-type-check",
+  "dependencies": {
+    "source-map-support": "^0.2.10"
+  }
+}
