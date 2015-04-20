@@ -49,6 +49,12 @@ export function isUndefined(x) {
 
 }
 
+export function isDefined(x) {
+
+  return !isUndefined(x);
+
+}
+
 export function isFunction(fn) {
 
   return typeof fn === 'function';
