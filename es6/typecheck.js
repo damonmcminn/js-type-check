@@ -73,3 +73,22 @@ export function isError(err) {
   return err instanceof Error;
 
 }
+
+export function typeCheck(type, val) {
+
+  let t = type.prototype.constructor.name.toLowerCase();
+
+  let checkers = {
+    'string': isString,
+    'object': isObject,
+    'number': isNumber,
+    'boolean': isBool,
+    'regexp': isRegex,
+    'date': isDate,
+    'array': isArray,
+    'function': isFunction
+  };
+
+  return checkers[t](val);
+
+}

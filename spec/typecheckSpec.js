@@ -362,3 +362,63 @@ describe('isError', function() {
   });
 
 });
+
+describe('isDefined', function() {
+
+  it('should return true input is defined', function() {
+
+    let n = tc.isDefined;
+
+    let pass = [
+      n(new Date()),
+      n({}),
+      n(1),
+      n(fn),
+      n(/regex/),
+      n(true),
+      n('str'),
+      n([]),
+      n(null),
+      n(NaN),
+      n(Infinity),
+      n(-Infinity)
+    ];
+
+    pass.forEach(function(f) {
+      expect(f).toBe(true);
+    });
+
+    expect(n(undefined)).toBe(false);
+    expect(n()).toBe(false);
+
+  });
+
+});
+
+describe('typeCheck', function() {
+
+  it('should correctly call functions when passed a constructor', function() {
+
+    let c = tc.typeCheck;
+
+    expect(c(String, 'a string')).toBe(true);
+    expect(c(Object, {foo: 'bar'})).toBe(true);
+    expect(c(Number, -42)).toBe(true);
+    expect(c(Boolean, true)).toBe(true);
+    expect(c(RegExp, /foobar/)).toBe(true);
+    expect(c(Date, new Date())).toBe(true);
+    expect(c(Array, ['foo', 'bar'])).toBe(true);
+    expect(c(Function, function() {})).toBe(true);
+
+    expect(c(String, 1)).toBe(false);
+    expect(c(Object, [])).toBe(false);
+    expect(c(Number, 'string')).toBe(false);
+    expect(c(Boolean, 1)).toBe(false);
+    expect(c(RegExp, 'foobar')).toBe(false);
+    expect(c(Date, Date.now())).toBe(false);
+    expect(c(Array, 'foo')).toBe(false);
+    expect(c(Function, true)).toBe(false);
+
+  });
+
+});
