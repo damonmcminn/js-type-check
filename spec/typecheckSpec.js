@@ -422,3 +422,26 @@ describe('typeCheck', function() {
   });
 
 });
+
+describe('getType', function() {
+
+  it('should return the type for any value', function() {
+
+    let g = tc.getType;
+
+    expect(g('str')).toBe('string');
+    expect(g({})).toBe('object');
+    expect(g(1)).toBe('number');
+    expect(g(NaN)).toBe('number');
+    expect(g(Infinity)).toBe('number');
+    expect(g(/regex/)).toBe('regexp');
+    expect(g(false)).toBe('boolean');
+    expect(g(null)).toBe('null');
+    expect(g(undefined)).toBe('undefined');
+    expect(g(new Date())).toBe('date');
+    expect(g([])).toBe('array');
+    expect(g(fn)).toBe('function');
+
+  });
+
+});

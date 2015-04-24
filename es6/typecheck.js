@@ -92,3 +92,11 @@ export function typeCheck(type, val) {
   return checkers[t](val);
 
 }
+
+export function getType(val) {
+
+  let str = Object.prototype.toString.call(val);
+
+  return str.slice(8, -1).toLowerCase();
+
+}
